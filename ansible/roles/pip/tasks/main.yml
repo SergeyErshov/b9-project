@@ -3,16 +3,19 @@
 
 - name: installing pip
   yum:
-    name: python-pip
+    name: python3-pip
     state: latest
 
-- name: config pip
+- name: updating pip
   shell:
-    cmd: {{ item }}
-    with_items:
-      - "pip config --global set global.index http://http://158.160.50.122/artifactory"
-      - "pip config --global set global.index-url http://http://158.160.50.122/artifactory"
-      - "pip config --global set global.trusted-host 158.160.50.122"
+    cmd: "pip3 install --upgrade pip"
+
+- name: config pip
+  command: "{{ item }}"
+  with_items:
+    - "python3 -m pip config --global set global.index http://158.160.50.122/artifactory"
+    - "python3 -m pip config --global set global.index-url http://158.160.50.122/artifactory"
+    - "python3 -m pip config --global set global.trusted-host 158.160.50.122"
 
 - name: download pip.conf from remote server
   fetch:
