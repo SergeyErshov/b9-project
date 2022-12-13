@@ -8,6 +8,7 @@
 
   roles:
     - role: "/mnt/d/home/esm/B9-proj/ansible/roles/docker/"
+    - role: "/mnt/d/home/esm/B9-proj/ansible/roles/pip"
     - role: "/mnt/d/home/esm/B9-proj/ansible/roles/artifactory/"
 
 
