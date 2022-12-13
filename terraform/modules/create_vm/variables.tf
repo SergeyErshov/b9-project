@@ -32,3 +32,21 @@ variable "disk_size" {
   type	      = string
   default     = "5"
 }
+
+variable "cores" {
+  description = "number of virtual cores"
+  type = string
+  default = "2"
+}
+
+variable "memory" {
+  description = "virtual memory in GB"
+  type = string
+  default = "2"
+}
+
+variable "core_fract" {
+  description = "core fraction in %"
+  type = string
+  default = "20" 
+}

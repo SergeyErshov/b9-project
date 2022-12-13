@@ -6,9 +6,9 @@ resource "yandex_compute_instance" "vm" {
   zone               = var.zone_name
 
   resources {
-    cores  = 2
-    memory = 2
-    core_fraction = 20
+    cores  = var.cores
+    memory = var.memory
+    core_fraction = var.core_fract
   }
 
   boot_disk {
@@ -24,7 +24,7 @@ resource "yandex_compute_instance" "vm" {
   }
 
   metadata = {
-    user-data          = "${file("/home/esm/ansible/playbooks/b6-summary/terraform/.metadata/yc_users.txt")}"
+    user-data          = "${file("~/.metadata/yc_users.txt")}"
     serial-port-enable = 1
   }
 }
