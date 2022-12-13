@@ -3,7 +3,7 @@ module "yandex_instance_1" {
   disk_size             = "64"
   cores                 = "4"
   memory                = "4"
-  instance_family_image = "Centos-7"
+  instance_family_image = "centos-7"
   instance_subnet_name  = "a-ru-central1-a"
   instance_name         = "vm01"
   zone_name             = "ru-central1-a"
