@@ -1,20 +1,20 @@
 resource "yandex_compute_instance" "vm" {
   description        = "Creatind new instance with the name"
   name               = var.instance_name
-  platform_id	     = "standard-v3"
+  platform_id        = "standard-v3"
   service_account_id = data.yandex_iam_service_account.user_id.id
   zone               = var.zone_name
 
   resources {
-    cores  = var.cores
-    memory = var.memory
+    cores         = var.cores
+    memory        = var.memory
     core_fraction = var.core_fract
   }
 
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.img.id
-      size     = var.disk_size	
+      size     = var.disk_size
     }
   }
 

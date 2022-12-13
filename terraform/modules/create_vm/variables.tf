@@ -29,24 +29,24 @@ variable "nat" {
 
 variable "disk_size" {
   description = "set size of the boot disk in GB"
-  type	      = string
+  type        = string
   default     = "5"
 }
 
 variable "cores" {
   description = "number of virtual cores"
-  type = string
-  default = "2"
+  type        = string
+  default     = "2"
 }
 
 variable "memory" {
   description = "virtual memory in GB"
-  type = string
-  default = "2"
+  type        = string
+  default     = "2"
 }
 
 variable "core_fract" {
   description = "core fraction in %"
-  type = string
-  default = "20" 
+  type        = string
+  default     = "20"
 }
