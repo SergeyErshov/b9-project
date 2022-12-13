@@ -1,0 +1,18 @@
+---
+# tasks file for docker
+
+- name: istalling epel-release
+  yum:
+    name: epel-release
+    state: latest
+    update_cache: true
+
+- name: istalling docker from epel-release
+  yum:
+    name: docker
+    state: latest
+
+- name: running docker if nedeed
+  service:
+    name: docker
+    state: started
