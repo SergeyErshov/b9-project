@@ -1,22 +1,23 @@
 ---
 # tasks file for artifactory
 
-- name: create jfrog home dir
+- name: create artifactory home dir
   file:
-    path: '{{ artifactory_home }}/var/etc/'
+    path: '{{ jfrog_home }}/artifactory/var/'
     state: directory
-    mode: '0755'
-    owner: "root"
-    group: "root"
+    mode: '0777'
+    owner: "1030"
+    group: "1030"
     recurse: true
 
 - name: copy artifactory conf file
   copy:
     src: '/mnt/d/home/esm/B9-proj/data/system.yaml'
-    dest: '{{ artifactory_home }}/var/etc/'
-    owner: "root"
-    group: "root"
+    dest: '{{ jfrog_home }}/artifactory/var/etc/'
+    mode: '0777'
+    owner: "1030"
+    group: "1030"
 
 - name: docker build and run
   shell:
-    cmd: "docker run --name artifactory -v {{ artifactory_home }}/var/:/var/opt/jfrog/artifactory -d -p 8081:8081 -p 80:8082 releases-docker.jfrog.io/jfrog/artifactory-pro:latest"
+    cmd: "docker run --name artifactory -v {{ jfrog_home }}/artifactory/var/:/opt/jfrog/artifactory/var/ -d -p 8081:8081 -p 80:8082 releases-docker.jfrog.io/jfrog/artifactory-pro:latest"
