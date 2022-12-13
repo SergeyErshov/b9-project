@@ -1,0 +1,21 @@
+---
+# tasks file for pip
+
+- name: installing pip
+  yum:
+    name: python-pip
+    state: latest
+
+- name: config pip
+  shell:
+    cmd: {{ item }}
+    with_items:
+      - "pip config --global set global.index http://http://158.160.50.122/artifactory"
+      - "pip config --global set global.index-url http://http://158.160.50.122/artifactory"
+      - "pip config --global set global.trusted-host 158.160.50.122"
+
+- name: download pip.conf from remote server
+  fetch:
+    src: "/etc/pip.conf"
+    dest: "/mnt/d/home/esm/B9-proj/data/"
+
