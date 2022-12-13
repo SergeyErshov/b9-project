@@ -1,0 +1,11 @@
+---
+- name: install docker on vm
+  hosts: vm
+  gather_facts: false
+  become: true
+  become_user: "root"
+  become_method: "sudo"
+
+  roles:
+    - role: "/mnt/d/home/esm/B9-proj/ansible/roles/docker/"
+   
